@@ -3,6 +3,8 @@ package com.example.zacc.gameloopexample;
 /**
  * Created by Zacc on 2016-04-28.
  */
+//http://blog.heeresonline.com/2015/01/intro-to-game-development-part-1-the-game-loop
+//This blog post made me aware of the .runOnUiThread function
 
 public class PseudoTimer {
     private long[] alFrameCount;
@@ -58,7 +60,6 @@ public class PseudoTimer {
     public class UIThreadCommand {
         public void runCommand() {
         }
-
         public void start(MainActivity main) {
             main.runOnUiThread(new Runnable() {
                 @Override
