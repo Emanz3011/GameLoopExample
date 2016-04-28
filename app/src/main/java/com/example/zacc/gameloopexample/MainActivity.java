@@ -21,15 +21,16 @@ public class MainActivity extends AppCompatActivity {
                 while(true){
                     pT.Update();
                     if (pT.frameReady(fps)) {
-                        MainActivity.this.runOnUiThread(new Runnable() {
+                        new PseudoTimer().new UIThreadCommand() {
                             @Override
-                            public void run() {
+                            public void runCommand() {
                                 System.err.println("pT ACTUAL FPS [" + pT.getActualFPS() + "]");
                             }
-                        });
+                        }.start(MainActivity.this);
+                    }
+                    ;
                     }
                 }
-            }
         }.start();
 
     }

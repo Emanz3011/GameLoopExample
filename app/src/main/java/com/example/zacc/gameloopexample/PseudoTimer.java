@@ -54,4 +54,18 @@ public class PseudoTimer {
         }
         return (alFrameCount.length / (lTotalTimeForSavedInstances/1000));
     }
+
+    public class UIThreadCommand {
+        public void runCommand() {
+        }
+
+        public void start(MainActivity main) {
+            main.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    runCommand();
+                }
+            });
+        }
+    }
 }
